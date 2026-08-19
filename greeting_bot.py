@@ -77,7 +77,7 @@ def send_to_wechat(message):
     """通过 Server 酱发送到微信"""
     try:
         # 使用 GET 方式发送
-        url = f"https://sct.ftqq.com/{SERVERCHAN_KEY}.send"
+        url = f"https://sc.ftqq.com/{SERVERCHAN_KEY}.send"
         params = {
             "text": "早安问候",
             "desp": message
