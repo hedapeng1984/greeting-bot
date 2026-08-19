@@ -76,12 +76,16 @@ def generate_greeting():
 def send_to_wechat(message):
     """通过 Server 酱发送到微信"""
     try:
+        # 使用 GET 方式发送
         url = f"https://sct.ftqq.com/{SERVERCHAN_KEY}.send"
-        data = {
+        params = {
             "text": "早安问候",
             "desp": message
         }
-        response = requests.post(url, data=data, timeout=10)
+        log_message(f"🔧 发送请求到: {url}")
+        response = requests.get(url, params=params, timeout=15)
+        log_message(f"📥 响应状态码: {response.status_code}")
+        log_message(f"📥 响应内容: {response.text[:200]}")
         result = response.json()
 
         if result.get("code") == 0:
