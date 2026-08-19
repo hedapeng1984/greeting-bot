@@ -1,0 +1,30 @@
+name: Morning Greeting
+
+on:
+  schedule:
+    # 每天 6:45 北京时间执行 (22:45 UTC)
+    - cron: '45 22 * * *'
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run greeting bot
+        env:
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+          MINIMAX_BASE_URL: ${{ secrets.MINIMAX_BASE_URL }}
+          SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
+        run: python greeting_bot.py
