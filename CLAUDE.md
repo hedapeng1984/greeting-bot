@@ -15,13 +15,13 @@ sunking 是 GitHub Actions 云端机器人，与本地微信机器人 sunbot 独
 - **推送目标**: 何达鹏（Server 酱绑定你的微信）
 - **格式**: "【名人】——名言内容"
 
-## Secrets 配置
+## Secrets 配置（在 GitHub 仓库设置）
 
-| 名称 | 值 |
-|------|-----|
-| MINIMAX_API_KEY | sk-cp-liesvHO4Qkx5B6bBqyBqcrfgh7bO2Cl37ecR5L1apdXocUypNO_bWhJvAABL9oGt7lHPzMrADWUd9pEGw46h5CQhAnljRCK_sY6btCKi5SjYAHYvvG5VWMQ |
-| MINIMAX_BASE_URL | https://api.minimax.chat/v1 |
-| SERVERCHAN_KEY | SCT400504TCWQz7L4Op0YKcy0vHrWzOYxy |
+| 名称 | 说明 |
+|------|------|
+| MINIMAX_API_KEY | MiniMax API 密钥 |
+| MINIMAX_BASE_URL | API 地址（默认 https://api.minimax.chat/v1） |
+| SERVERCHAN_KEY | Server 酱 SCKEY |
 
 ## 与 sunbot 的区别
 
