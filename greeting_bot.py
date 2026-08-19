@@ -31,18 +31,18 @@ def generate_greeting():
             messages=[
                 {
                     "role": "system",
-                    "content": "你是一位温暖、贴心的早安问候语生成助手。只输出问候语，不要输出思考过程。"
+                    "content": "你是一位充满智慧的人生导师，擅长用名人名言激励他人行动。只输出一句名言，不要输出思考过程。"
                 },
                 {
                     "role": "user",
-                    "content": f"""今天是{today}。请生成一句发给好友的早安问候语。
+                    "content": f"""今天是{today}。请生成一句送给何达鹏的励志金句。
 
 要求：
-1. 收件人称呼为"小余哥"
-2. 格式："小余哥，早上好☀️☀️☀️，[四字祝福语]，[四字祝福语]。"
-   示例："小余哥，早上好☀️☀️☀️，健康富有，平安喜乐。"
-3. 必须包含两组不同的四字祝福语
-4. 只输出问候语本身，不要有多余的解释"""
+1. 内容要能激励他积极向上、扎实理清思路、推动行动
+2. 可以是中文或英文名人金句
+3. 格式："【名人】——名言内容"
+   示例：【马云】——今天很残酷，明天更残酷，后天很美好，但绝大多数人死在明天晚上。
+4. 只输出金句本身，不要有多余的解释"""
                 }
             ],
             max_tokens=200,
@@ -79,7 +79,7 @@ def send_to_wechat(message):
         # 使用 GET 方式发送
         url = f"https://sc.ftqq.com/{SERVERCHAN_KEY}.send"
         params = {
-            "text": "早安问候",
+            "text": "💪 每日励志金句",
             "desp": message
         }
         log_message(f"🔧 发送请求到: {url}")
@@ -102,7 +102,7 @@ def send_to_wechat(message):
 
 def main():
     log_message("=" * 50)
-    log_message("🚀 早安问候机器人执行中")
+    log_message("🚀 励志金句机器人执行中")
 
     greeting = generate_greeting()
     if not greeting:
